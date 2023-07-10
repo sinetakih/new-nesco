@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "747387759853",
+    "project_id": "nesco-app",
+    "storage_bucket": "nesco-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:747387759853:android:0f4f32a3bb0830a1bab0e4",
+        "android_client_info": {
+          "package_name": "com.example.nesco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "747387759853-lfcpvmq0f4adpf73he9tdhq21uphrmjf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzX_t4MBo7M0KdRHFtBdepd_rj2waNPD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "747387759853-lfcpvmq0f4adpf73he9tdhq21uphrmjf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
