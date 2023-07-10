@@ -4,11 +4,6 @@ import 'package:nesco/firebase_options.dart';
 import 'package:nesco/provider/vin_provider.dart';
 import 'package:nesco/repository/vin_repository.dart';
 import 'package:nesco/screens/addvehicle.dart';
-import 'package:nesco/screens/onboarding/onboarding_one.dart';
-import 'package:nesco/screens/signin.dart';
-import 'package:nesco/screens/signup.dart';
-import 'package:nesco/screens/homescreen.dart';
-import 'package:nesco/screens/garage.dart';
 import 'package:nesco/service/api/api.client.dart';
 import 'package:nesco/service/api/vin.service.dart';
 import 'package:provider/provider.dart';
@@ -47,7 +42,10 @@ class _NescoHomeState extends State<NescoHome> {
         ChangeNotifierProvider<VinProvider>(
             create: (context) => VinProvider(vinRepository: vinRepository))
       ],
-      child: MaterialApp(home: addvehicle()),
+      child: const MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: "Nesco",
+          home: AddVehicle()),
     );
   }
 }
@@ -62,7 +60,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Column(
         children: [
           Center(

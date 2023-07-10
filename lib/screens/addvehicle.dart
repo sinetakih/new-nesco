@@ -5,12 +5,14 @@ import 'package:nesco/provider/vin_provider.dart';
 import 'package:nesco/screens/homescreen.dart';
 import 'package:provider/provider.dart';
 
-class addvehicle extends StatefulWidget {
+class AddVehicle extends StatefulWidget {
+  const AddVehicle({super.key});
+
   @override
-  State<addvehicle> createState() => _addvehicleState();
+  State<AddVehicle> createState() => _AddVehicleState();
 }
 
-class _addvehicleState extends State<addvehicle> {
+class _AddVehicleState extends State<AddVehicle> {
   final TextEditingController regNumberController = TextEditingController();
 
   final TextEditingController vinController = TextEditingController();
@@ -105,25 +107,25 @@ class _addvehicleState extends State<addvehicle> {
                     } else if (vinData.state == AppState.error) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           content: Text(
-                              vinData.errorMessage ?? "An error occured")));
+                              vinData.errorMessage ?? "An error occurred")));
                     }
 
                     VinRequest parameters =
                         VinRequest(vin: vinController.text.trim());
-                    await vinData.getVin(parameters).whenComplete(() {
+                    await vinData.getVin(parameters).then((value) {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const HomeScreen()));
                     });
                   },
-                  child: const Text('Add Vehicle'),
                   style: ElevatedButton.styleFrom(
                     primary: kPrimaryColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
                   ),
+                  child: const Text('Add Vehicle'),
                 ),
               ),
               const SizedBox(height: 20),
@@ -139,14 +141,5 @@ class _addvehicleState extends State<addvehicle> {
         ),
       );
     });
-  }
-}
-
-class nesconnew extends StatelessWidget {
-  const nesconnew({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }

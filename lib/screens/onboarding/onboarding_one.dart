@@ -79,7 +79,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       curve: Curves.ease);
                   // Add your onPressed function here
                 },
-                child: const Text('Next'),
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15)),
@@ -90,6 +89,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     color: Colors.white,
                   ), // Set text style
                 ),
+                child: const Text('Next'),
               ),
             ),
             const SizedBox(
