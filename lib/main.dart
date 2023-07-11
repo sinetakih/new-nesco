@@ -3,13 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:nesco/firebase_options.dart';
 import 'package:nesco/provider/vin_provider.dart';
 import 'package:nesco/repository/vin_repository.dart';
+import 'package:nesco/screens/HomeNavigation.dart';
 import 'package:nesco/screens/addvehicle.dart';
+import 'package:nesco/screens/homescreen.dart';
+import 'package:nesco/screens/onboarding/onboarding_one.dart';
 import 'package:nesco/service/api/api.client.dart';
 import 'package:nesco/service/api/vin.service.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const NescoHome());
 }
@@ -45,7 +49,7 @@ class _NescoHomeState extends State<NescoHome> {
       child: const MaterialApp(
           debugShowCheckedModeBanner: false,
           title: "Nesco",
-          home: AddVehicle()),
+          home: HomeNavigation()),
     );
   }
 }
