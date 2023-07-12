@@ -6,10 +6,16 @@ import 'package:nesco/constant.dart';
 class GeneralButton extends StatelessWidget {
   final String? buttonText;
   final Color? color;
+  final Function? onTouch;
   final TextEditingController regNumberController = TextEditingController();
 
   final TextEditingController vinController = TextEditingController();
-  GeneralButton({super.key, this.buttonText, this.color});
+  GeneralButton({
+    super.key,
+    this.buttonText,
+    this.color,
+    this.onTouch,
+  });
 
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +23,9 @@ class GeneralButton extends StatelessWidget {
         width: 350,
         height: 50,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            onTouch!();
+          },
           style: ElevatedButton.styleFrom(
             primary: color!,
             shape: RoundedRectangleBorder(

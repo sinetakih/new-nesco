@@ -59,6 +59,8 @@ class Garage extends StatelessWidget {
             text1: 'Currently requesting for :',
             text2: '2015 Toyota Venza',
             text3: 'XLE 4dr Wagon AWD',
+            infotext: '',
+            messagetext: '',
             image: AssetImage(
               'assets/image/venza3.png',
             ),

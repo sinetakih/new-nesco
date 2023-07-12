@@ -6,6 +6,8 @@ class CardsBox extends StatelessWidget {
   final String? text1;
   final String? text2;
   final String? text3;
+  final String infotext;
+  final String messagetext;
   final AssetImage? image;
   const CardsBox({
     super.key,
@@ -13,6 +15,10 @@ class CardsBox extends StatelessWidget {
     this.text2,
     this.text3,
     this.image,
+    required this.infotext,
+    required this.messagetext,
+    //this.infotext,
+    // this.messagetext,
   });
 
   @override
@@ -29,57 +35,85 @@ class CardsBox extends StatelessWidget {
             horizontal: 20,
             vertical: 50,
           ),
-          child: Row(
-            //crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
+                //crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    text1!,
-                    style: TextStyle(
-                      fontFamily: 'Lato-Regular',
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.black,
-                    ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        text1!,
+                        style: TextStyle(
+                          fontFamily: 'Lato-Regular',
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 45,
+                      ),
+                      Text(
+                        text2!,
+                        style: TextStyle(
+                          fontFamily: 'Lato-Bold',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.black,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Text(
+                        text3!,
+                        style: TextStyle(
+                          fontFamily: 'Lato-Regular',
+                          fontSize: 10,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 45,
+                      ),
+                      Text(
+                        infotext,
+                        //textAlign: TextAlign.left,
+                        style: TextStyle(
+                            fontFamily: 'Lato-Bold',
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700),
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    height: 45,
-                  ),
-                  Text(
-                    text2!,
-                    style: TextStyle(
-                      fontFamily: 'Lato-Bold',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Text(
-                    text3!,
-                    style: TextStyle(
-                      fontFamily: 'Lato-Regular',
-                      fontSize: 10,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.black,
-                    ),
+                  Column(
+                    children: [
+                      Image(
+                        image: image!,
+                        width: 140,
+                        height: 84,
+                      )
+                    ],
                   ),
                 ],
               ),
-              Column(
-                children: [
-                  Image(
-                    image: image!,
-                    width: 140,
-                    height: 84,
-                  )
-                ],
+              SizedBox(
+                height: 7,
+              ),
+              Text(
+                messagetext,
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontFamily: 'Lato-Regular',
+                  fontWeight: FontWeight.normal,
+                  fontSize: 14,
+                  // textAlign: TextAlign.justify,
+                ),
               )
             ],
           ),

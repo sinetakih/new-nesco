@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:nesco/constant.dart';
 import 'package:nesco/provider/vin_provider.dart';
+import 'package:nesco/screens/schedule_details.dart';
+import 'package:nesco/screens/service_details.dart';
 
 import 'package:nesco/screens/widgets/home_card.dart';
 import 'package:provider/provider.dart';
@@ -215,10 +217,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    HomeCard(
-                      inspectionText: "Inspection",
-                      amount: "10,000XAF",
-                      icon: CupertinoIcons.text_badge_checkmark,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ServiceDetails(),
+                          ),
+                        );
+                      },
+                      child: HomeCard(
+                        inspectionText: "Inspection",
+                        amount: "10,000XAF",
+                        icon: CupertinoIcons.text_badge_checkmark,
+                      ),
                     ),
                     HomeCard(
                       inspectionText: "Oil Change",
