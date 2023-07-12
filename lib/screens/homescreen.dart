@@ -243,9 +243,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         amount: "25,000XAF",
                         icon: CupertinoIcons.graph_circle),
                     HomeCard(
-                        inspectionText: "Washing",
-                        amount: "5,000XAF",
-                        icon: CupertinoIcons.sparkles),
+                      inspectionText: "Washing",
+                      amount: "5,000XAF",
+                      icon: CupertinoIcons.sparkles,
+                    ),
                   ],
                 ),
               )
