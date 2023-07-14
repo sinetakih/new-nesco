@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "747387759853-lfcpvmq0f4adpf73he9tdhq21uphrmjf.apps.googleusercontent.com",
+          "client_id": "747387759853-0rb153bdu3iv32bq03hou8pqckcs51vt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nesco",
+            "certificate_hash": "8e286304f7aadbafabd85e3bd935d74f07c65279"
+          }
+        },
+        {
+          "client_id": "747387759853-3j9uk5qgdqmo63hsue5413i2r2sgggn5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,8 +35,15 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "747387759853-lfcpvmq0f4adpf73he9tdhq21uphrmjf.apps.googleusercontent.com",
+              "client_id": "747387759853-3j9uk5qgdqmo63hsue5413i2r2sgggn5.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "747387759853-d3ir8etq3b7kuf1k90l32fqhb55ih6nh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.nesco"
+              }
             }
           ]
         }

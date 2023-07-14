@@ -1,14 +1,20 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:nesco/constant.dart';
+import 'package:nesco/core/enums.dart';
 import 'package:nesco/firebase_options.dart';
+import 'package:nesco/provider/auth_provider.dart';
 import 'package:nesco/provider/vin_provider.dart';
+import 'package:nesco/repository/auth_repository.dart';
 import 'package:nesco/repository/vin_repository.dart';
 import 'package:nesco/screens/HomeNavigation.dart';
 import 'package:nesco/screens/addvehicle.dart';
 import 'package:nesco/screens/homescreen.dart';
 import 'package:nesco/screens/onboarding/onboarding_one.dart';
+import 'package:nesco/screens/signup.dart';
 import 'package:nesco/service/api/api.client.dart';
 import 'package:nesco/service/api/vin.service.dart';
+import 'package:nesco/service/firebase_auth_service.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -31,10 +37,13 @@ class _NescoHomeState extends State<NescoHome> {
   late final VinService vinService;
 
   late final VinRepository vinRepository;
+  final FirebaseAuthService _authService = FirebaseAuthService();
+  late final AuthRepository _authRepository;
 
   @override
   void initState() {
     super.initState();
+    _authRepository = AuthRepository(_authService);
     vinService = VinService(client: apiClient);
     vinRepository = VinRepository(vinService: vinService);
   }
@@ -44,12 +53,28 @@ class _NescoHomeState extends State<NescoHome> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<VinProvider>(
-            create: (context) => VinProvider(vinRepository: vinRepository))
+            create: (context) => VinProvider(vinRepository: vinRepository)),
+        ChangeNotifierProvider<AuthProvider>(
+            create: (context) =>
+                AuthProvider(_authRepository)..authStateChanged()),
       ],
-      child: const MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: "Nesco",
-          home: HomeNavigation()),
+      child: Consumer<AuthProvider>(
+        builder: (context, authData, child) {
+          print("Auth state is ${authData.authState}");
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: "Nesco",
+            theme: ThemeData(
+                primaryColor: kPrimaryColor,
+                colorScheme: ColorScheme.fromSeed(seedColor: kPrimaryColor)),
+            home: SignUpPage(),
+            // home: authData.authState == AuthState.authenticated
+            //     ? AddVehicle()
+            //     : OnboardingScreen(),
+            // home: HomeNavigation()),
+          );
+        },
+      ),
     );
   }
 }

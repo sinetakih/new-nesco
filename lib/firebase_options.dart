@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '747387759853',
     projectId: 'nesco-app',
     storageBucket: 'nesco-app.appspot.com',
+    androidClientId: '747387759853-0rb153bdu3iv32bq03hou8pqckcs51vt.apps.googleusercontent.com',
     iosClientId: '747387759853-d3ir8etq3b7kuf1k90l32fqhb55ih6nh.apps.googleusercontent.com',
     iosBundleId: 'com.example.nesco',
   );

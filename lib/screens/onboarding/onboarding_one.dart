@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nesco/constant.dart';
 import 'package:nesco/model/onboard.dart';
+import 'package:nesco/screens/signup.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -77,6 +78,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   _pageController.nextPage(
                       duration: const Duration(milliseconds: 300),
                       curve: Curves.ease);
+
+                  if (demo_data.indexOf(demo_data.last) == _pageIndex) {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignUpPage()));
+                  }
                   // Add your onPressed function here
                 },
                 style: ElevatedButton.styleFrom(
