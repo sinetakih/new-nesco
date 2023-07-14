@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:nesco/model/api/vin.model.dart';
-import 'package:nesco/service/api/api.client.dart';
 import 'package:nesco/service/api/vin.service.dart';
 
 import '../core/failure.dart';

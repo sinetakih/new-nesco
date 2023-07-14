@@ -5,6 +5,8 @@ import 'package:nesco/provider/vin_provider.dart';
 import 'package:nesco/screens/homescreen.dart';
 import 'package:provider/provider.dart';
 
+import '../core/enums.dart';
+
 class AddVehicle extends StatefulWidget {
   const AddVehicle({super.key});
 

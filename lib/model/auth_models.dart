@@ -13,10 +13,8 @@ class RegisterRequest {
 }
 
 class LoginRequest {
-  final String username;
   final String email;
   final String password;
 
-  LoginRequest(
-      {required this.username, required this.email, required this.password});
+  LoginRequest({required this.email, required this.password});
 }

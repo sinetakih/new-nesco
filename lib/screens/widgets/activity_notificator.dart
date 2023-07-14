@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nesco/constant.dart';
 
@@ -18,7 +17,6 @@ class ActivityNotificator extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            // ignore: prefer_const_constructors
             color: Color.fromARGB(255, 253, 252, 252),
             spreadRadius: 1,
             offset: Offset(0, 1.0),

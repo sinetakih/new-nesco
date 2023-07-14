@@ -2,10 +2,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:nesco/constant.dart';
 import 'package:nesco/provider/vin_provider.dart';
-import 'package:nesco/screens/schedule_details.dart';
 import 'package:nesco/screens/service_details.dart';
 
 import 'package:nesco/screens/widgets/home_card.dart';

@@ -28,7 +28,6 @@ class HomeCard extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [
             const BoxShadow(
-              // ignore: prefer_const_constructors
               color: Color.fromARGB(255, 253, 252, 252),
               spreadRadius: 1,
               offset: Offset(0, 1.0),

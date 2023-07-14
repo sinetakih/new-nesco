@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
-
 class VinResponse {
   final Map<String, dynamic> specs;
   final List<Map<String, dynamic>> trims;

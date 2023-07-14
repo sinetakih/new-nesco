@@ -3,13 +3,11 @@ import 'package:flutter/foundation.dart';
 import 'package:nesco/core/failure.dart';
 import 'package:nesco/model/api/vin.model.dart';
 import 'package:nesco/repository/vin_repository.dart';
-import 'package:nesco/service/api/api.client.dart';
-import 'package:nesco/service/api/vin.service.dart';
 
-enum AppState { intitial, submitting, success, error }
+import '../core/enums.dart';
 
 class VinProvider extends ChangeNotifier {
-  AppState state = AppState.intitial;
+  AppState state = AppState.initial;
   String? errorMessage;
   VinResponse vinResponse = VinResponse.empty;
 
