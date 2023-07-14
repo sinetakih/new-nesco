@@ -47,7 +47,7 @@ class MenuPage extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 30),
+              padding: EdgeInsets.symmetric(horizontal: 21, vertical: 26),
               child: Column(
                 children: [
                   MenuItems(
@@ -55,74 +55,72 @@ class MenuPage extends StatelessWidget {
                     icon: CupertinoIcons.person_alt_circle_fill,
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 17,
                   ),
                   MenuItems(
-                    text: 'Contact Details',
-                    icon: CupertinoIcons.person_alt_circle_fill,
+                      text: 'My account manager',
+                      icon: CupertinoIcons.person_badge_plus_fill),
+                  SizedBox(
+                    height: 17,
+                  ),
+                  MenuItems(
+                    text: 'Payment',
+                    icon: CupertinoIcons.creditcard_fill,
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 17,
                   ),
                   MenuItems(
-                    text: 'Contact Details',
-                    icon: CupertinoIcons.person_alt_circle_fill,
+                    text: 'Change Password',
+                    icon: CupertinoIcons.lock_shield_fill,
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 17,
                   ),
                   MenuItems(
-                    text: 'Contact Details',
-                    icon: CupertinoIcons.person_alt_circle_fill,
+                    text: 'Service History',
+                    icon: CupertinoIcons.arrow_uturn_right_circle,
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 17,
                   ),
                   MenuItems(
-                    text: 'Contact Details',
-                    icon: CupertinoIcons.person_alt_circle_fill,
+                    text: 'Contact Us',
+                    icon: CupertinoIcons.phone_circle_fill,
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 17,
                   ),
                   MenuItems(
-                    text: 'Contact Details',
-                    icon: CupertinoIcons.person_alt_circle_fill,
+                    text: 'Support',
+                    icon: CupertinoIcons.headphones,
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 17,
                   ),
                   MenuItems(
-                    text: 'Contact Details',
-                    icon: CupertinoIcons.person_alt_circle_fill,
+                    text: 'Terms & Conditions',
+                    icon: CupertinoIcons.link_circle_fill,
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 17,
                   ),
                   MenuItems(
-                    text: 'Contact Details',
-                    icon: CupertinoIcons.person_alt_circle_fill,
+                      text: 'Privacy Policy',
+                      icon: CupertinoIcons.link_circle_fill),
+                  SizedBox(
+                    height: 17,
+                  ),
+                  MenuItems(
+                    text: 'Delete Account',
+                    icon: CupertinoIcons.person_crop_circle_fill_badge_xmark,
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 23,
                   ),
                   MenuItems(
-                    text: 'Contact Details',
-                    icon: CupertinoIcons.person_alt_circle_fill,
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  MenuItems(
-                    text: 'Contact Details',
-                    icon: CupertinoIcons.person_alt_circle_fill,
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  MenuItems(
-                    text: 'Contact Details',
-                    icon: CupertinoIcons.person_alt_circle_fill,
+                    text: 'Log Out',
+                    icon: CupertinoIcons.power,
                   ),
                 ],
               ),
