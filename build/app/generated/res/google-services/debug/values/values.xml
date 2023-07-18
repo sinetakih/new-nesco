@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">747387759853-3j9uk5qgdqmo63hsue5413i2r2sgggn5.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">747387759853</string>
+    <string name="google_api_key" translatable="false">AIzaSyBzX_t4MBo7M0KdRHFtBdepd_rj2waNPD0</string>
+    <string name="google_app_id" translatable="false">1:747387759853:android:0f4f32a3bb0830a1bab0e4</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBzX_t4MBo7M0KdRHFtBdepd_rj2waNPD0</string>
+    <string name="google_storage_bucket" translatable="false">nesco-app.appspot.com</string>
+    <string name="project_id" translatable="false">nesco-app</string>
+</resources>
