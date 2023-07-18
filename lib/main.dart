@@ -7,7 +7,9 @@ import 'package:nesco/provider/auth_provider.dart';
 import 'package:nesco/provider/vin_provider.dart';
 import 'package:nesco/repository/auth_repository.dart';
 import 'package:nesco/repository/vin_repository.dart';
+import 'package:nesco/screens/HomeNavigation.dart';
 import 'package:nesco/screens/addvehicle.dart';
+import 'package:nesco/screens/maps_screen.dart';
 import 'package:nesco/screens/onboarding/onboarding_one.dart';
 import 'package:nesco/service/api/api.client.dart';
 import 'package:nesco/service/api/vin.service.dart';
@@ -66,7 +68,7 @@ class _NescoHomeState extends State<NescoHome> {
                 colorScheme: ColorScheme.fromSeed(seedColor: kPrimaryColor)),
             //  home: SignUpPage(),
             home: authData.authState == AuthState.authenticated
-                ? AddVehicle()
+                ? HomeNavigation()
                 : OnboardingScreen(),
             // home: HomeNavigation()),
           );

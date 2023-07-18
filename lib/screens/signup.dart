@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nesco/constant.dart';
 import 'package:nesco/core/enums.dart';
 import 'package:nesco/model/auth_models.dart';
+import 'package:nesco/screens/addvehicle.dart';
 import 'package:nesco/screens/signin.dart';
 import 'package:provider/provider.dart';
 
@@ -168,10 +169,10 @@ class _SignUpPageState extends State<SignUpPage> {
                                 .registerWithEmailAndPassword(credentials)
                                 .then((value) {
                               if (authData.state == AppState.success) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content:
-                                            Text("Sucessfully Registered")));
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => AddVehicle()));
                                 // Navigate to sign in screen
                               } else if (authData.state == AppState.error) {
                                 ScaffoldMessenger.of(context).showSnackBar(
@@ -199,9 +200,10 @@ class _SignUpPageState extends State<SignUpPage> {
                         onPressed: () async {
                           await authData.signInWithGoogle().then((value) {
                             if (authData.state == AppState.success) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content: Text("Sucessfully Registered")));
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => AddVehicle()));
                             } else if (authData.state == AppState.error) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
@@ -216,7 +218,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             borderRadius: BorderRadius.circular(16),
                           ),
                         ),
-                        child: const Text('Sign Up Wih Google'),
+                        child: const Text('Sign Up With Google'),
                       ),
                     ),
 
@@ -227,18 +229,21 @@ class _SignUpPageState extends State<SignUpPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Don't have an account?"),
+                        Text("Already have an account?"),
                         InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SignInPage()));
-                            },
-                            child: Text(
-                              " Sign In",
-                              style: TextStyle(
-                                  color: Theme.of(context).primaryColor),
+                            onTap: () {},
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => SignInPage()));
+                              },
+                              child: Text(
+                                " Sign In",
+                                style: TextStyle(
+                                    color: Theme.of(context).primaryColor),
+                              ),
                             ))
                       ],
                     ),

@@ -17,13 +17,17 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final List<String> items = const ["ereuyryer", "erefrerferfe", "erfefref"];
-  late VinResponse vin1;
+  late VinResponse? vin1;
+  bool hasData = false;
 
   getvini() async {
-    VinResponse v = await VinResponse.getFirstVin();
-    setState(() {
-      vin1 = v;
-    });
+    VinResponse? v = await VinResponse.getFirstVin();
+    if (v!.isNotEmpty) {
+      setState(() {
+        hasData = true;
+        vin1 = v;
+      });
+    }
   }
 
   @override
@@ -166,13 +170,20 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SizedBox(
                           height: 16,
                         ),
-                        Text(
-                          "${vin1.model}", // ${vin1.year} ${vin1.make}: adding all here won't display well
-                          style: const TextStyle(
-                              fontSize: 16,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700),
-                        ),
+                        hasData
+                            ? Text(
+                                "${vin1!.make}", // ${vin1.year} ${vin1.make}: adding all here won't display well
+                                style: const TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700),
+                              )
+                            : const Text(
+                                "No Vehicle added",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
                         const SizedBox(
                           height: 8,
                         ),

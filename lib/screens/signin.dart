@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:nesco/constant.dart';
 import 'package:nesco/model/auth_models.dart';
 import 'package:nesco/provider/auth_provider.dart';
+import 'package:nesco/screens/HomeNavigation.dart';
+import 'package:nesco/screens/signup.dart';
 import 'package:provider/provider.dart';
 
 import '../core/enums.dart';
@@ -47,7 +49,7 @@ class _SignInPageState extends State<SignInPage> {
                         'assets/image/welcome.png'), // Add your logo here
                     const SizedBox(height: 20),
                     const Text(
-                      "Sign Up Today",
+                      "Sign In Today",
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
                     ),
@@ -119,10 +121,11 @@ class _SignInPageState extends State<SignInPage> {
                                 .signInWithEmailAndPassword(credentials)
                                 .then((value) {
                               if (authData.state == AppState.success) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content:
-                                            Text("Sucessfully Registered")));
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            HomeNavigation()));
                               } else if (authData.state == AppState.error) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
@@ -138,7 +141,7 @@ class _SignInPageState extends State<SignInPage> {
                             borderRadius: BorderRadius.circular(16),
                           ),
                         ),
-                        child: const Text('Sign Up'),
+                        child: const Text('Sign In'),
                       ),
                     ),
                     const SizedBox(height: 20),
@@ -149,14 +152,15 @@ class _SignInPageState extends State<SignInPage> {
                         onPressed: () async {
                           await authData.signInWithGoogle().then((value) {
                             if (authData.state == AppState.success) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content: Text("Sucessfully Registered")));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => HomeNavigation()));
                             } else if (authData.state == AppState.error) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                       content: Text(authData.errorMessage ??
-                                          "Failed to Register")));
+                                          "Failed to login")));
                             }
                           });
                         },
@@ -166,7 +170,7 @@ class _SignInPageState extends State<SignInPage> {
                             borderRadius: BorderRadius.circular(16),
                           ),
                         ),
-                        child: const Text('Sign Up Wih Google'),
+                        child: const Text('Sign In With Google'),
                       ),
                     ),
 
@@ -183,10 +187,10 @@ class _SignInPageState extends State<SignInPage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => SignInPage()));
+                                      builder: (context) => SignUpPage()));
                             },
                             child: Text(
-                              " Sign In",
+                              " Sign Up",
                               style: TextStyle(
                                   color: Theme.of(context).primaryColor),
                             ))

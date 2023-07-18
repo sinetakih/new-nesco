@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nesco/constant.dart';
 import 'package:nesco/model/api/vin.model.dart';
 import 'package:nesco/provider/vin_provider.dart';
+import 'package:nesco/screens/HomeNavigation.dart';
 import 'package:nesco/screens/homescreen.dart';
 import 'package:provider/provider.dart';
 
@@ -121,7 +122,7 @@ class _AddVehicleState extends State<AddVehicle> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const HomeScreen()));
+                                builder: (context) => const HomeNavigation()));
                       } catch (e) {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             content: Text(e.toString().substring(
@@ -146,11 +147,21 @@ class _AddVehicleState extends State<AddVehicle> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Don't have your details handy?"),
-                    InkWell(child: Text(" Skip Now"))
+                    InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeNavigation()));
+                        },
+                        child: const Text(
+                          " Skip Now",
+                          style: TextStyle(color: kPrimaryColor),
+                        ))
                   ],
                 )
               ],

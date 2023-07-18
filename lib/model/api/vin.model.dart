@@ -76,8 +76,7 @@ class VinResponse {
   }
 
   // Get first vins from firebase firestore by user id
-  static Future<VinResponse> getFirstVin() async {
-    print("getting user vins");
+  static Future<VinResponse?> getFirstVin() async {
     final user = FirebaseAuth.instance.currentUser;
     final firestore = FirebaseFirestore.instance;
 
@@ -88,7 +87,11 @@ class VinResponse {
     final snapshot = await query.get();
     final data = snapshot.docs.first.data();
 
-    return VinResponse.fromJsonn(data);
+    if (data.isNotEmpty) {
+      return VinResponse.fromJsonn(data);
+    } else {
+      return null;
+    }
   }
 }
 
