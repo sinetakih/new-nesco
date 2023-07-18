@@ -172,6 +172,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                     const SnackBar(
                                         content:
                                             Text("Sucessfully Registered")));
+                                // Navigate to sign in screen
                               } else if (authData.state == AppState.error) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(

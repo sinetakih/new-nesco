@@ -113,14 +113,28 @@ class _AddVehicleState extends State<AddVehicle> {
                                 vinData.errorMessage ?? "An error occurred")));
                       }
 
-                      VinRequest parameters =
+                      VinRequest vinRequest =
                           VinRequest(vin: vinController.text.trim());
-                      await vinData.getVin(parameters).then((value) {
+                      try {
+                        VinResponse vinR = await vinRequest.getVin();
+                        vinR.save();
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const HomeScreen()));
-                      });
+                      } catch (e) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text(e.toString().substring(
+                                    11) // to remove the Exception: part
+                                )));
+                        print(e);
+                      }
+                      // await vinData.getVin(parameters).then((value) {
+                      //   Navigator.push(
+                      //       context,
+                      //       MaterialPageRoute(
+                      //           builder: (context) => const HomeScreen()));
+                      // });
                     },
                     style: ElevatedButton.styleFrom(
                       primary: kPrimaryColor,
