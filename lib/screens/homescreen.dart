@@ -1,8 +1,7 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nesco/constant.dart';
+import 'package:nesco/model/api/vin.model.dart';
 import 'package:nesco/provider/vin_provider.dart';
 import 'package:nesco/screens/service_details.dart';
 
@@ -18,6 +17,20 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final List<String> items = const ["ereuyryer", "erefrerferfe", "erfefref"];
+  late VinResponse vin1;
+
+  getvini() async {
+    VinResponse v = await VinResponse.getFirstVin();
+    setState(() {
+      vin1 = v;
+    });
+  }
+
+  @override
+  void initState() {
+    getvini();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     SizedBox(
-                      width: 140,
+                      width: 100,
                     ),
                     Column(
                       children: [
@@ -154,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 16,
                         ),
                         Text(
-                          "${vinData.vinResponse.year} ${vinData.vinResponse.make} ${vinData.vinResponse.model}",
+                          "${vin1.model}", // ${vin1.year} ${vin1.make}: adding all here won't display well
                           style: const TextStyle(
                               fontSize: 16,
                               color: Colors.white,

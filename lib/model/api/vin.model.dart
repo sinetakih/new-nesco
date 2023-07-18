@@ -74,6 +74,22 @@ class VinResponse {
         .then((value) => print("Vin Added"))
         .catchError((error) => print("Failed to add vin: $error"));
   }
+
+  // Get first vins from firebase firestore by user id
+  static Future<VinResponse> getFirstVin() async {
+    print("getting user vins");
+    final user = FirebaseAuth.instance.currentUser;
+    final firestore = FirebaseFirestore.instance;
+
+    final vins = firestore.collection('vins');
+
+    final query = vins.where("user", isEqualTo: user!.uid).limit(1);
+
+    final snapshot = await query.get();
+    final data = snapshot.docs.first.data();
+
+    return VinResponse.fromJsonn(data);
+  }
 }
 
 class VinRequest {
