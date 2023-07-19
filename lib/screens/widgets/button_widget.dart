@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:nesco/screens/maps_screen.dart';
 
 class GeneralButton extends StatelessWidget {
   final String? buttonText;
@@ -22,7 +23,8 @@ class GeneralButton extends StatelessWidget {
       height: 50,
       child: ElevatedButton(
         onPressed: () {
-          onTouch!();
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => MapsScreen()));
         },
         style: ElevatedButton.styleFrom(
           primary: color!,
