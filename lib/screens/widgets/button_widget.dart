@@ -24,12 +24,7 @@ class GeneralButton extends StatelessWidget {
       width: 350,
       height: 50,
       child: ElevatedButton(
-        onPressed: () {
-          if (isMap) {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => MapsScreen()));
-          }
-        },
+        onPressed: onTouch as void Function()?,
         style: ElevatedButton.styleFrom(
           primary: color!,
           shape: RoundedRectangleBorder(
