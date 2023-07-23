@@ -7,6 +7,7 @@ class GeneralButton extends StatelessWidget {
   final String? buttonText;
   final Color? color;
   final Function? onTouch;
+  final bool isMap;
   final TextEditingController regNumberController = TextEditingController();
 
   final TextEditingController vinController = TextEditingController();
@@ -15,6 +16,7 @@ class GeneralButton extends StatelessWidget {
     this.buttonText,
     this.color,
     this.onTouch,
+    this.isMap = false,
   });
 
   Widget build(BuildContext context) {
@@ -23,8 +25,10 @@ class GeneralButton extends StatelessWidget {
       height: 50,
       child: ElevatedButton(
         onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => MapsScreen()));
+          if (isMap) {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => MapsScreen()));
+          }
         },
         style: ElevatedButton.styleFrom(
           primary: color!,

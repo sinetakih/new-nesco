@@ -70,6 +70,7 @@ class ServiceDetails extends StatelessWidget {
                   GeneralButton(
                     buttonText: 'Request Now',
                     color: kPrimaryColor,
+                    isMap: true,
                   ),
                   SizedBox(
                     height: 27,
