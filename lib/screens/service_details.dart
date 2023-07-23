@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nesco/constant.dart';
+import 'package:nesco/screens/maps_screen.dart';
 import 'package:nesco/screens/schedule_details.dart';
 import 'package:nesco/screens/widgets/button_widget.dart';
 import 'package:nesco/screens/widgets/cards_widget.dart';
@@ -68,9 +69,15 @@ class ServiceDetails extends StatelessWidget {
                     height: 64,
                   ),
                   GeneralButton(
-                    buttonText: 'Request Now',
-                    color: kPrimaryColor,
-                  ),
+                      buttonText: 'Request Now',
+                      color: kPrimaryColor,
+                      isMap: true,
+                      onTouch: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MapsScreen()));
+                      }),
                   SizedBox(
                     height: 27,
                   ),
